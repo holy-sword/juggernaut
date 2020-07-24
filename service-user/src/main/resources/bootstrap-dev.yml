@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    # 数据库名
+    name: service_user
+    url: jdbc:postgresql://192.168.2.169:5432/${spring.datasource.name}?stringtype=unspecified
+    username: postgres
+    password:
+
+# 配置mybatis-plus
+mybatis-plus:
+  # 打印SQL
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# 开启swagger文档
+swagger:
+  enable: true

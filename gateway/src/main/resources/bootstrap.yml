@@ -1,0 +1,41 @@
+server:
+  port: 10203
+  # spring gateway启用ssl http://cloud.spring.io/spring-cloud-gateway/single/spring-cloud-gateway.html#_tls_ssl
+
+spring:
+  profiles:
+    # 默认使用开发环境配置文件
+    active: dev
+  application:
+    name: gateway
+  cloud:
+    #网关
+    gateway:
+      #是否与服务发现组件进行结合，通过 serviceId(必须设置成大写) 转发到具体的服务实例。默认为false，设为true便开启通过服务中心的自动根据 serviceId 创建路由的功能。
+      #路由访问方式：http://Gateway_HOST:Gateway_PORT/大写的serviceId/**，其中微服务应用名默认大写访问。
+      #发现
+      discovery:
+        #定位
+        locator:
+          #是否可运行
+          enabled: true
+          #设置是否支持小写serviceId访问
+          lower-case-service-id: true
+      #路由
+      routes:
+        # =====================================
+        # 用户服务（service-user）
+        - id: service-user
+          uri: lb://service-user
+          predicates:
+            - Path=/api/admin/user/**,/api/user/**,/api/token/**
+
+feign:
+  hystrix:
+    enabled: false
+
+# 网关忽略请求列表
+gateway:
+  ignore:
+    # 不拦截请求（jwt获取、刷新相关、用户注册、验证码等）
+    start-with: /token,/user/register,/captcha

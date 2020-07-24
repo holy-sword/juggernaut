@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lzx.user.dao.DataPermissionMapper">
+
+
+    <select id="listByUserId" parameterType="String" resultType="com.lzx.user.entity.DataPermission">
+        select distinct p.* from sys_data_permission p
+        left join sys_role_data_permission rp on rp.permission_id = p.id
+        left join sys_user_role ur on ur.role_id = rp.role_id
+        <where>
+            <if test="null!=userId and userId!=''">
+                ur.user_id = #{userId}
+            </if>
+        </where>
+    </select>
+
+</mapper>

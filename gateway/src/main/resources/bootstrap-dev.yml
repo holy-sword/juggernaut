@@ -1,0 +1,9 @@
+#以下根据https://github.com/spring-cloud/spring-cloud-gateway中的spring-cloud-gateway-sample引用的日志级别
+logging:
+  level:
+    #TRACE追踪
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.http.server.reactive: DEBUG
+    org.springframework.web.reactive: DEBUG
+    reactor.ipc.netty: DEBUG
+    reactor.netty: DEBUG
