@@ -2,7 +2,7 @@ package com.lzx.cloud.gateway.filter;
 
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
-import org.springframework.cloud.gateway.filter.LoadBalancerClientFilter;
+import org.springframework.cloud.gateway.filter.ReactiveLoadBalancerClientFilter;
 import org.springframework.core.Ordered;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
@@ -46,6 +46,6 @@ public class SchemeFilter implements GlobalFilter, Ordered {
 
     @Override
     public int getOrder() {
-        return LoadBalancerClientFilter.LOAD_BALANCER_CLIENT_FILTER_ORDER + 1;
+        return ReactiveLoadBalancerClientFilter.LOAD_BALANCER_CLIENT_FILTER_ORDER + 1;
     }
 }
