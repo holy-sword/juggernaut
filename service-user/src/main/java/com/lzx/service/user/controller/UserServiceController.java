@@ -108,7 +108,7 @@ public class UserServiceController extends BaseController<User, Long> {
      * @param matchMethod 匹配的目标方式（其中包含*）
      */
     private boolean matchHttpMethod(String method, String matchMethod) {
-        if (StringUtils.isEmpty(method)) {
+        if (!StringUtils.hasText(method)) {
             return false;
         }
         if ("*".equals(matchMethod)) {

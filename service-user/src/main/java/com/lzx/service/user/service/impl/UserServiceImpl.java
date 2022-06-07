@@ -87,7 +87,7 @@ public class UserServiceImpl extends CommonServiceImpl<UserMapper, User, Long> i
             throw new ServiceException("该登录账号已经存在：" + user.getLoginName());
         }
         //检测手机号（第三方关联账号创建时可为空）
-        if (!StringUtils.isEmpty(user.getTel())) {
+        if (StringUtils.hasText(user.getTel())) {
             if (this.getUserByTel(user.getTel()).isPresent()) {
                 throw new ServiceException("该手机号码已经被使用：" + user.getTel());
             }
@@ -96,7 +96,7 @@ public class UserServiceImpl extends CommonServiceImpl<UserMapper, User, Long> i
         user.setFrozen(false);
         //密码加密存储
         String password = user.getLoginPassword();
-        if (StringUtils.isEmpty(password)) {
+        if (!StringUtils.hasText(password)) {
             throw new ServiceException("登录密码不能为空");
         }
         user.setLoginPassword(new BCryptPasswordEncoder(UserConstant.PASSWORD_ENCODER_SALT).encode(password));
@@ -104,7 +104,7 @@ public class UserServiceImpl extends CommonServiceImpl<UserMapper, User, Long> i
 
         //添加角色
         String role = user.getRole();
-        if (StringUtils.isEmpty(role)) {
+        if (!StringUtils.hasText(role)) {
             throw new ServiceException("用户角色不能为空");
         }
         for (String s : role.split(",")) {

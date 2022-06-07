@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.lzx.web.entity.CommonEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.ClassUtils;
+import org.springframework.util.ObjectUtils;
 import org.springframework.util.ReflectionUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.util.WebUtils;
@@ -93,7 +94,7 @@ public abstract class BaseController<E extends CommonEntity<D>, D extends Serial
         QueryWrapper<T> wrapper = new QueryWrapper<>();
 
         map.forEach((k, v) -> {
-            if (StringUtils.isEmpty(v))
+            if (ObjectUtils.isEmpty(v))
                 return;
             String[] keyArray = k.split("_");
             if (keyArray.length < 2)
@@ -101,7 +102,7 @@ public abstract class BaseController<E extends CommonEntity<D>, D extends Serial
 
             //获取数据库中字段名称
             String columnName = parseColumnName(clazz, keyArray[1]);
-            if (StringUtils.isEmpty(columnName))
+            if (!StringUtils.hasText(columnName))
                 return;
             //保存排序顺序Map<顺序（自然升序，小的先处理）,Map<列名,是否升序>>
             Map<Integer, Map<String, Boolean>> sortMap = new TreeMap<>();
@@ -227,7 +228,7 @@ public abstract class BaseController<E extends CommonEntity<D>, D extends Serial
      * @return 转换好的字符串
      */
     public static String camelToUnderline(String param) {
-        if (StringUtils.isEmpty(param)) {
+        if (!StringUtils.hasText(param)) {
             return "";
         }
         int len = param.length();

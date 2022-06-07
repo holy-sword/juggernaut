@@ -154,7 +154,7 @@ public class AccessGatewayFilter implements GlobalFilter {
         if (strings != null) {
             authToken = strings.get(0);
         }
-        if (StringUtils.isEmpty(authToken)) {
+        if (!StringUtils.hasText(authToken)) {
             strings = request.getQueryParams().get("token");
             if (strings == null) {
                 throw new RuntimeException("获取不到jwt相关信息");
@@ -174,7 +174,7 @@ public class AccessGatewayFilter implements GlobalFilter {
      * @param matchMethod 匹配的目标方式（其中包含*）
      */
     private boolean matchHttpMethod(String method, String matchMethod) {
-        if (StringUtils.isEmpty(method)) {
+        if (!StringUtils.hasText(method)) {
             return false;
         }
         if ("*".equals(matchMethod)) {
