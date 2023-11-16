@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 
+import java.io.Serial;
 import java.time.LocalDateTime;
 
 /**
@@ -16,6 +17,7 @@ import java.time.LocalDateTime;
 @Data
 public abstract class BaseEntity<D> implements CommonEntity<D> {
 
+    @Serial
     private static final long serialVersionUID = 1L;
 
     /**

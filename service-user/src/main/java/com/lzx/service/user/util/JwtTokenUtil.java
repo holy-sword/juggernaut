@@ -79,7 +79,7 @@ public class JwtTokenUtil {
      * @return the {@link Jws Jws} instance that reflects the specified compact Claims JWS string.
      */
     public static Jws<Claims> parserToken(String token) {
-        return Jwts.parserBuilder().setSigningKey(HS256_KEY).build().parseClaimsJws(token);
+        return Jwts.parser().setSigningKey(HS256_KEY).build().parseClaimsJws(token);
     }
 
 

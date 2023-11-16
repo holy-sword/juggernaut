@@ -7,10 +7,10 @@ import com.github.pagehelper.PageInfo;
 import com.lzx.common.Result;
 import com.lzx.web.entity.CommonEntity;
 import com.lzx.web.service.CommonService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 import java.util.Arrays;
 

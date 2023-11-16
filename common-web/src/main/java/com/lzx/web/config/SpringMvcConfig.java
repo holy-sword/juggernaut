@@ -1,8 +1,8 @@
 package com.lzx.web.config;
 
-import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.alibaba.fastjson.support.config.FastJsonConfig;
-import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import com.alibaba.fastjson2.JSONWriter;
+import com.alibaba.fastjson2.support.config.FastJsonConfig;
+import com.alibaba.fastjson2.support.spring6.http.converter.FastJsonHttpMessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -68,7 +68,7 @@ public class SpringMvcConfig implements WebMvcConfigurer {
     private AbstractHttpMessageConverter<?> fastJsonConverter() {
         final FastJsonHttpMessageConverter fastJsonConverter = new FastJsonHttpMessageConverter();
         final FastJsonConfig config = new FastJsonConfig();
-        config.setSerializerFeatures(SerializerFeature.IgnoreErrorGetter, SerializerFeature.WriteNullStringAsEmpty);
+        config.setWriterFeatures(JSONWriter.Feature.WriteNullStringAsEmpty, JSONWriter.Feature.IgnoreErrorGetter);
         config.setCharset(StandardCharsets.UTF_8);
         config.setDateFormat(DEFAULT_DATE_FORMAT);
         fastJsonConverter.setFastJsonConfig(config);

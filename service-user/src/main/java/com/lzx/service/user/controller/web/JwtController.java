@@ -3,12 +3,12 @@ package com.lzx.service.user.controller.web;
 import com.lzx.common.Result;
 import com.lzx.service.user.service.JwtService;
 import com.lzx.service.user.util.JwtTokenUtil;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 
 /**
  * JWT管理

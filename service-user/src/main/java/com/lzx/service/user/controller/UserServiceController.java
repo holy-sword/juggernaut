@@ -10,6 +10,7 @@ import com.lzx.service.user.service.DataPermissionService;
 import com.lzx.service.user.service.PermissionService;
 import com.lzx.service.user.service.UserService;
 import com.lzx.web.controller.BaseController;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +18,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;

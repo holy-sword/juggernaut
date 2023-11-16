@@ -10,10 +10,10 @@ import com.lzx.service.user.entity.dto.MenuTree;
 import com.lzx.service.user.service.*;
 import com.lzx.service.user.util.UserUtil;
 import com.lzx.web.controller.BaseController;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;

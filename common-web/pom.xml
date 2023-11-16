@@ -12,9 +12,9 @@
     <artifactId>common-web</artifactId>
 
     <properties>
-        <mybatis-plus.version>3.3.2</mybatis-plus.version>
-        <mybatis-pagehelper.version>1.2.13</mybatis-pagehelper.version>
-        <druid-spring-boot-starter.version>1.1.23</druid-spring-boot-starter.version>
+        <mybatis-plus.version>3.5.4</mybatis-plus.version>
+        <mybatis-pagehelper.version>1.4.7</mybatis-pagehelper.version>
+        <druid-spring-boot-starter.version>1.2.20</druid-spring-boot-starter.version>
     </properties>
 
 

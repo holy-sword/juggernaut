@@ -1,6 +1,6 @@
 package com.lzx.cloud.gateway.filter;
 
-import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson2.JSONObject;
 import com.lzx.cloud.gateway.feign.UserService;
 import com.lzx.cloud.gateway.feign.dto.Permission;
 import com.lzx.cloud.gateway.util.JwtTokenUtil;

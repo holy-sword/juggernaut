@@ -9,10 +9,10 @@ import com.lzx.service.user.service.DepartmentService;
 import com.lzx.service.user.service.DepartmentUserService;
 import com.lzx.service.user.service.UserService;
 import com.lzx.web.controller.AbstractController;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;

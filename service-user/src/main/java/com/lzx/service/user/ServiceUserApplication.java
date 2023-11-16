@@ -7,7 +7,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication(scanBasePackages = "com.lzx")
 @EnableDiscoveryClient
-@MapperScan("com.lzx.user.dao")
+@MapperScan("com.lzx.service.user.dao")
 public class ServiceUserApplication {
 
     public static void main(String[] args) {
